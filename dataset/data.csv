@@ -1,0 +1,101 @@
+,OrderID,OrderDate,CustomerID,CustomerName,Region,Country,State,Category,SubCategory,ProductID,ProductName,Sales,Quantity,Discount,Profit,ShipMode,PaymentMode
+0,ORD1000,2022-01-01,CUST100,Customer_0,Central,Mexico,Florida,Furniture,Storage,PROD200,Product_0,1012.06,6,0.29,-179.93,Standard Class,Bank Transfer
+1,ORD1001,2022-01-02,CUST101,Customer_1,South,Canada,Florida,Office Supplies,Tables,PROD201,Product_1,1087.97,7,0.18,122.08,First Class,Cash
+2,ORD1002,2022-01-03,CUST102,Customer_2,East,Canada,Florida,Office Supplies,Phones,PROD202,Product_2,1374.25,3,0.07,11.45,Second Class,Credit Card
+3,ORD1003,2022-01-04,CUST103,Customer_3,Central,Canada,Florida,Office Supplies,Phones,PROD203,Product_3,1239.39,7,0.2,127.5,First Class,Bank Transfer
+4,ORD1004,2022-01-05,CUST104,Customer_4,Central,Canada,Florida,Technology,Storage,PROD204,Product_4,1888.91,3,0.19,-80.24,Standard Class,Cash
+5,ORD1005,2022-01-06,CUST105,Customer_5,South,Canada,New York,Furniture,Phones,PROD205,Product_5,1889.62,2,0.11,690.53,Standard Class,Cash
+6,ORD1006,2022-01-07,CUST106,Customer_6,East,Canada,Texas,Office Supplies,Chairs,PROD206,Product_6,1737.05,4,0.03,393.59,Standard Class,Credit Card
+7,ORD1007,2022-01-08,CUST107,Customer_7,East,Mexico,Florida,Furniture,Tables,PROD207,Product_7,1280.08,8,0.2,479.1,First Class,Credit Card
+8,ORD1008,2022-01-09,CUST108,Customer_8,Central,Mexico,California,Technology,Accessories,PROD208,Product_8,1605.88,9,0.16,589.17,First Class,PayPal
+9,ORD1009,2022-01-10,CUST109,Customer_9,West,Canada,California,Technology,Phones,PROD209,Product_9,1360.79,7,0.23,298.44,First Class,Bank Transfer
+10,ORD1010,2022-01-11,CUST110,Customer_10,Central,Mexico,California,Office Supplies,Chairs,PROD210,Product_10,1155.27,1,0.16,-113.08,First Class,Bank Transfer
+11,ORD1011,2022-01-12,CUST111,Customer_11,Central,USA,California,Technology,Accessories,PROD211,Product_11,274.43,3,0.26,337.11,Standard Class,PayPal
+12,ORD1012,2022-01-13,CUST112,Customer_12,Central,Canada,New York,Furniture,Tables,PROD212,Product_12,1626.18,9,0.17,386.84,Standard Class,Bank Transfer
+13,ORD1013,2022-01-14,CUST113,Customer_13,Central,USA,California,Office Supplies,Accessories,PROD213,Product_13,1644.87,1,0.17,545.44,Second Class,Bank Transfer
+14,ORD1014,2022-01-15,CUST114,Customer_14,South,USA,Florida,Furniture,Chairs,PROD214,Product_14,1259.36,9,0.26,231.66,Second Class,Bank Transfer
+15,ORD1015,2022-01-16,CUST115,Customer_15,East,Canada,Illinois,Furniture,Accessories,PROD215,Product_15,1644.45,8,0.12,-72.42,First Class,Bank Transfer
+16,ORD1016,2022-01-17,CUST116,Customer_16,South,Mexico,California,Technology,Storage,PROD216,Product_16,1309.94,1,0.04,83.78,Same Day,Bank Transfer
+17,ORD1017,2022-01-18,CUST117,Customer_17,South,USA,New York,Technology,Accessories,PROD217,Product_17,429.24,6,0.01,163.08,Same Day,Credit Card
+18,ORD1018,2022-01-19,CUST118,Customer_18,South,Canada,New York,Technology,Phones,PROD218,Product_18,562.44,5,0.23,445.92,Standard Class,Bank Transfer
+19,ORD1019,2022-01-20,CUST119,Customer_19,Central,USA,California,Technology,Phones,PROD219,Product_19,444.89,6,0.19,370.78,Standard Class,Credit Card
+20,ORD1020,2022-01-21,CUST120,Customer_20,West,USA,Illinois,Technology,Storage,PROD220,Product_20,766.97,5,0.21,156.1,Standard Class,Bank Transfer
+21,ORD1021,2022-01-22,CUST121,Customer_21,East,USA,California,Office Supplies,Chairs,PROD221,Product_21,97.15,6,0.06,786.52,Second Class,PayPal
+22,ORD1022,2022-01-23,CUST122,Customer_22,West,USA,New York,Furniture,Phones,PROD222,Product_22,1244.14,5,0.04,405.77,Second Class,Cash
+23,ORD1023,2022-01-24,CUST123,Customer_23,South,Mexico,Texas,Furniture,Tables,PROD223,Product_23,686.38,5,0.0,37.23,Standard Class,Credit Card
+24,ORD1024,2022-01-25,CUST124,Customer_24,South,USA,Florida,Furniture,Phones,PROD224,Product_24,1318.33,4,0.11,-98.22,Standard Class,Bank Transfer
+25,ORD1025,2022-01-26,CUST125,Customer_25,West,USA,New York,Furniture,Phones,PROD225,Product_25,783.09,3,0.18,-47.14,Standard Class,PayPal
+26,ORD1026,2022-01-27,CUST126,Customer_26,West,USA,California,Technology,Chairs,PROD226,Product_26,1369.6,3,0.12,45.96,Same Day,Cash
+27,ORD1027,2022-01-28,CUST127,Customer_27,West,Mexico,Florida,Furniture,Accessories,PROD227,Product_27,694.44,4,0.13,-39.32,Second Class,Credit Card
+28,ORD1028,2022-01-29,CUST128,Customer_28,South,USA,California,Office Supplies,Phones,PROD228,Product_28,536.18,9,0.27,-13.43,Same Day,Cash
+29,ORD1029,2022-01-30,CUST129,Customer_29,South,USA,California,Office Supplies,Storage,PROD229,Product_29,1002.15,2,0.1,85.1,Same Day,PayPal
+30,ORD1030,2022-01-31,CUST130,Customer_30,East,Mexico,Texas,Furniture,Accessories,PROD230,Product_30,1391.92,9,0.15,-26.63,Standard Class,Credit Card
+31,ORD1031,2022-02-01,CUST131,Customer_31,East,Mexico,Florida,Furniture,Tables,PROD231,Product_31,709.71,1,0.24,696.77,Standard Class,Cash
+32,ORD1032,2022-02-02,CUST132,Customer_32,South,Mexico,Florida,Office Supplies,Chairs,PROD232,Product_32,1874.56,1,0.12,-119.77,First Class,Bank Transfer
+33,ORD1033,2022-02-03,CUST133,Customer_33,West,USA,Texas,Office Supplies,Tables,PROD233,Product_33,97.59,5,0.19,324.51,First Class,Credit Card
+34,ORD1034,2022-02-04,CUST134,Customer_34,West,Mexico,New York,Technology,Accessories,PROD234,Product_34,847.53,6,0.26,210.4,Same Day,Cash
+35,ORD1035,2022-02-05,CUST135,Customer_35,East,Mexico,California,Office Supplies,Accessories,PROD235,Product_35,1935.81,6,0.28,782.38,Second Class,PayPal
+36,ORD1036,2022-02-06,CUST136,Customer_36,South,USA,Illinois,Technology,Accessories,PROD236,Product_36,1104.98,3,0.04,-87.96,Standard Class,PayPal
+37,ORD1037,2022-02-07,CUST137,Customer_37,East,Mexico,California,Technology,Tables,PROD237,Product_37,858.47,7,0.28,197.86,Standard Class,Credit Card
+38,ORD1038,2022-02-08,CUST138,Customer_38,East,USA,California,Technology,Accessories,PROD238,Product_38,1145.67,9,0.15,769.47,Same Day,Cash
+39,ORD1039,2022-02-09,CUST139,Customer_39,Central,Canada,New York,Technology,Tables,PROD239,Product_39,1160.33,8,0.08,665.51,First Class,Credit Card
+40,ORD1040,2022-02-10,CUST140,Customer_40,Central,Mexico,California,Technology,Accessories,PROD240,Product_40,1468.66,6,0.14,617.07,Second Class,Credit Card
+41,ORD1041,2022-02-11,CUST141,Customer_41,Central,Canada,Texas,Furniture,Storage,PROD241,Product_41,272.83,8,0.29,57.9,First Class,Cash
+42,ORD1042,2022-02-12,CUST142,Customer_42,West,USA,Texas,Office Supplies,Accessories,PROD242,Product_42,515.03,5,0.15,-29.11,First Class,Cash
+43,ORD1043,2022-02-13,CUST143,Customer_43,South,Mexico,Florida,Technology,Tables,PROD243,Product_43,1169.48,8,0.1,468.64,First Class,Bank Transfer
+44,ORD1044,2022-02-14,CUST144,Customer_44,South,USA,Illinois,Office Supplies,Phones,PROD244,Product_44,1736.89,4,0.19,729.38,First Class,Cash
+45,ORD1045,2022-02-15,CUST145,Customer_45,South,Canada,California,Office Supplies,Accessories,PROD245,Product_45,1132.5,8,0.07,356.76,Standard Class,PayPal
+46,ORD1046,2022-02-16,CUST146,Customer_46,South,USA,California,Technology,Phones,PROD246,Product_46,492.42,2,0.02,371.61,Standard Class,Credit Card
+47,ORD1047,2022-02-17,CUST147,Customer_47,Central,Mexico,New York,Furniture,Storage,PROD247,Product_47,1366.09,5,0.04,79.98,First Class,Credit Card
+48,ORD1048,2022-02-18,CUST148,Customer_48,West,Mexico,Texas,Technology,Chairs,PROD248,Product_48,1485.02,9,0.04,569.49,Second Class,PayPal
+49,ORD1049,2022-02-19,CUST149,Customer_49,West,Canada,Illinois,Furniture,Storage,PROD249,Product_49,491.71,4,0.05,-12.96,Same Day,Cash
+50,ORD1050,2022-02-20,CUST150,Customer_50,Central,USA,Florida,Office Supplies,Accessories,PROD250,Product_50,767.9,6,0.04,123.68,Second Class,PayPal
+51,ORD1051,2022-02-21,CUST151,Customer_51,West,Mexico,Texas,Furniture,Phones,PROD251,Product_51,1077.97,1,0.19,225.44,Second Class,PayPal
+52,ORD1052,2022-02-22,CUST152,Customer_52,Central,Canada,Florida,Furniture,Phones,PROD252,Product_52,1003.19,9,0.05,307.61,Second Class,Bank Transfer
+53,ORD1053,2022-02-23,CUST153,Customer_53,South,Mexico,New York,Furniture,Tables,PROD253,Product_53,791.44,1,0.1,42.41,First Class,PayPal
+54,ORD1054,2022-02-24,CUST154,Customer_54,Central,Mexico,New York,Office Supplies,Phones,PROD254,Product_54,609.32,5,0.27,-85.16,Standard Class,Credit Card
+55,ORD1055,2022-02-25,CUST155,Customer_55,South,USA,California,Office Supplies,Tables,PROD255,Product_55,217.97,4,0.14,410.62,Second Class,PayPal
+56,ORD1056,2022-02-26,CUST156,Customer_56,South,Mexico,Illinois,Furniture,Chairs,PROD256,Product_56,125.9,3,0.2,88.63,First Class,Credit Card
+57,ORD1057,2022-02-27,CUST157,Customer_57,East,USA,Florida,Furniture,Accessories,PROD257,Product_57,1917.91,6,0.05,381.24,Second Class,Credit Card
+58,ORD1058,2022-02-28,CUST158,Customer_58,Central,Mexico,Texas,Technology,Tables,PROD258,Product_58,1697.34,2,0.06,-45.64,Second Class,Credit Card
+59,ORD1059,2022-03-01,CUST159,Customer_59,East,Canada,New York,Furniture,Chairs,PROD259,Product_59,722.71,3,0.01,281.14,First Class,Cash
+60,ORD1060,2022-03-02,CUST160,Customer_60,Central,Mexico,California,Technology,Phones,PROD260,Product_60,1914.47,5,0.05,332.59,Standard Class,Bank Transfer
+61,ORD1061,2022-03-03,CUST161,Customer_61,Central,USA,California,Furniture,Phones,PROD261,Product_61,1360.0,9,0.08,-148.18,Standard Class,Credit Card
+62,ORD1062,2022-03-04,CUST162,Customer_62,East,USA,Florida,Technology,Chairs,PROD262,Product_62,975.39,2,0.05,136.6,Same Day,Credit Card
+63,ORD1063,2022-03-05,CUST163,Customer_63,East,Canada,New York,Office Supplies,Phones,PROD263,Product_63,996.19,8,0.03,-65.59,First Class,Cash
+64,ORD1064,2022-03-06,CUST164,Customer_64,Central,Mexico,Illinois,Furniture,Chairs,PROD264,Product_64,184.9,2,0.04,-136.63,Same Day,Credit Card
+65,ORD1065,2022-03-07,CUST165,Customer_65,West,Mexico,New York,Furniture,Tables,PROD265,Product_65,201.57,5,0.14,789.96,Same Day,PayPal
+66,ORD1066,2022-03-08,CUST166,Customer_66,South,Canada,Florida,Furniture,Tables,PROD266,Product_66,1212.83,7,0.06,122.35,Same Day,PayPal
+67,ORD1067,2022-03-09,CUST167,Customer_67,East,Mexico,Florida,Furniture,Chairs,PROD267,Product_67,1116.33,8,0.11,609.87,Standard Class,Bank Transfer
+68,ORD1068,2022-03-10,CUST168,Customer_68,South,Mexico,New York,Technology,Tables,PROD268,Product_68,441.2,1,0.15,54.64,First Class,Credit Card
+69,ORD1069,2022-03-11,CUST169,Customer_69,West,USA,Florida,Furniture,Tables,PROD269,Product_69,1893.47,6,0.21,481.5,Same Day,Cash
+70,ORD1070,2022-03-12,CUST170,Customer_70,West,Mexico,New York,Office Supplies,Tables,PROD270,Product_70,1566.97,1,0.01,560.23,First Class,PayPal
+71,ORD1071,2022-03-13,CUST171,Customer_71,West,Mexico,Texas,Office Supplies,Storage,PROD271,Product_71,244.66,2,0.24,395.64,First Class,Cash
+72,ORD1072,2022-03-14,CUST172,Customer_72,East,Canada,New York,Furniture,Accessories,PROD272,Product_72,1863.24,1,0.19,271.58,Standard Class,Cash
+73,ORD1073,2022-03-15,CUST173,Customer_73,West,Canada,New York,Office Supplies,Phones,PROD273,Product_73,1949.01,5,0.02,211.84,Same Day,PayPal
+74,ORD1074,2022-03-16,CUST174,Customer_74,East,USA,Florida,Furniture,Storage,PROD274,Product_74,1991.94,9,0.26,148.87,Same Day,Cash
+75,ORD1075,2022-03-17,CUST175,Customer_75,West,Mexico,Florida,Furniture,Tables,PROD275,Product_75,130.62,6,0.28,729.53,First Class,PayPal
+76,ORD1076,2022-03-18,CUST176,Customer_76,South,Mexico,California,Office Supplies,Chairs,PROD276,Product_76,1479.33,1,0.02,630.62,Second Class,Cash
+77,ORD1077,2022-03-19,CUST177,Customer_77,South,Mexico,California,Furniture,Tables,PROD277,Product_77,1100.91,1,0.08,765.03,Standard Class,PayPal
+78,ORD1078,2022-03-20,CUST178,Customer_78,Central,USA,Texas,Office Supplies,Accessories,PROD278,Product_78,1417.55,2,0.24,-75.7,Standard Class,Credit Card
+79,ORD1079,2022-03-21,CUST179,Customer_79,South,USA,California,Technology,Tables,PROD279,Product_79,1937.93,9,0.22,530.87,Standard Class,Bank Transfer
+80,ORD1080,2022-03-22,CUST180,Customer_80,Central,Canada,New York,Furniture,Chairs,PROD280,Product_80,1382.3,3,0.06,738.34,Standard Class,PayPal
+81,ORD1081,2022-03-23,CUST181,Customer_81,South,USA,Florida,Technology,Accessories,PROD281,Product_81,1677.19,1,0.06,-18.77,Same Day,PayPal
+82,ORD1082,2022-03-24,CUST182,Customer_82,East,Mexico,California,Office Supplies,Tables,PROD282,Product_82,1736.4,5,0.11,-133.5,Same Day,Bank Transfer
+83,ORD1083,2022-03-25,CUST183,Customer_83,South,Mexico,California,Technology,Accessories,PROD283,Product_83,1680.19,7,0.15,541.12,Second Class,PayPal
+84,ORD1084,2022-03-26,CUST184,Customer_84,Central,USA,Texas,Technology,Phones,PROD284,Product_84,863.66,6,0.19,374.47,Standard Class,PayPal
+85,ORD1085,2022-03-27,CUST185,Customer_85,Central,Mexico,Texas,Office Supplies,Phones,PROD285,Product_85,460.7,1,0.11,641.83,Standard Class,Cash
+86,ORD1086,2022-03-28,CUST186,Customer_86,West,Mexico,New York,Technology,Tables,PROD286,Product_86,805.37,5,0.14,-60.23,First Class,Bank Transfer
+87,ORD1087,2022-03-29,CUST187,Customer_87,East,USA,Florida,Technology,Accessories,PROD287,Product_87,1785.96,5,0.22,595.27,Same Day,Credit Card
+88,ORD1088,2022-03-30,CUST188,Customer_88,South,USA,Texas,Office Supplies,Chairs,PROD288,Product_88,310.28,6,0.01,1.63,Standard Class,PayPal
+89,ORD1089,2022-03-31,CUST189,Customer_89,West,Mexico,California,Technology,Tables,PROD289,Product_89,1036.39,3,0.08,-36.34,Second Class,Bank Transfer
+90,ORD1090,2022-04-01,CUST190,Customer_90,South,Mexico,Florida,Office Supplies,Phones,PROD290,Product_90,481.79,5,0.21,-35.73,Second Class,Cash
+91,ORD1091,2022-04-02,CUST191,Customer_91,South,Mexico,Florida,Technology,Phones,PROD291,Product_91,1170.98,7,0.27,614.57,Same Day,Credit Card
+92,ORD1092,2022-04-03,CUST192,Customer_92,West,Canada,California,Office Supplies,Tables,PROD292,Product_92,1729.01,5,0.15,465.2,Second Class,Bank Transfer
+93,ORD1093,2022-04-04,CUST193,Customer_93,West,Canada,Texas,Office Supplies,Accessories,PROD293,Product_93,1763.11,5,0.16,323.07,Second Class,Credit Card
+94,ORD1094,2022-04-05,CUST194,Customer_94,West,Canada,California,Technology,Phones,PROD294,Product_94,488.64,5,0.03,158.83,Same Day,Credit Card
+95,ORD1095,2022-04-06,CUST195,Customer_95,West,USA,Florida,Technology,Accessories,PROD295,Product_95,1817.23,3,0.13,677.2,Standard Class,Credit Card
+96,ORD1096,2022-04-07,CUST196,Customer_96,West,Canada,Illinois,Technology,Phones,PROD296,Product_96,1191.94,1,0.16,192.45,Standard Class,PayPal
+97,ORD1097,2022-04-08,CUST197,Customer_97,South,USA,Illinois,Furniture,Phones,PROD297,Product_97,713.43,5,0.07,616.6,Second Class,PayPal
+98,ORD1098,2022-04-09,CUST198,Customer_98,West,USA,New York,Furniture,Storage,PROD298,Product_98,1422.2,9,0.08,239.13,Second Class,Cash
+99,ORD1099,2022-04-10,CUST199,Customer_99,East,Canada,California,Furniture,Phones,PROD299,Product_99,973.7,1,0.11,176.94,Standard Class,Cash
