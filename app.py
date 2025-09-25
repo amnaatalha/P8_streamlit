@@ -115,8 +115,8 @@ def summarize_text(text, max_len=150):
 st.title("🤖 Summarizer and Sentiment Analyzer")
 st.write("Paste text, upload a TXT or PDF, or provide a URL. Click Analyze to get sentiment, emotions (table + chart), and a summary.")
 
-# mode = st.radio("Input method:", ["✍️ Text", "🌐 URL", "📂 File"], horizontal=True)
-mode = st.radio("Input method:", ["✍️ Text", "🌐 URL"], horizontal=True)
+mode = st.radio("Input method:", ["✍️ Text", "🌐 URL", "📂 File"], horizontal=True)
+# mode = st.radio("Input method:", ["✍️ Text", "🌐 URL"], horizontal=True)
 
 
 input_text = ""
