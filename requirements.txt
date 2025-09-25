@@ -1,7 +1,9 @@
-numpy
-pandas
-matplotlib
 streamlit
-seaborn
 transformers
 torch
+plotly
+pandas
+requests
+beautifulsoup4
+PyPDF2
+sentencepiece
