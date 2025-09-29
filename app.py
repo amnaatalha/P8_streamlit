@@ -226,9 +226,14 @@ if do_analyze or do_summarize or do_both:
                 fig.update_layout(xaxis_title="Score (%)", yaxis_title="", template="plotly_white", height=450)
                 st.plotly_chart(fig, use_container_width=True)
 
-                # allow chart PNG download
-                img_bytes = fig.to_image(format="png")
-                st.download_button("⬇️ Download Emotion Chart (PNG)", data=img_bytes, file_name="emotion_chart.png", mime="image/png")
+                
+                # Save as HTML instead of PNG
+                html_bytes = fig.to_html().encode("utf-8")
+                st.download_button("⬇️ Download Chart (HTML)", data=html_bytes, file_name="chart.html")
+
+                # # allow chart PNG download
+                # img_bytes = fig.to_image(format="png")
+                # st.download_button("⬇️ Download Emotion Chart (PNG)", data=img_bytes, file_name="emotion_chart.png", mime="image/png")
 
 # ----------------------------
 # Footer
