@@ -221,9 +221,32 @@ if do_analyze or do_summarize or do_both:
                 fig.update_traces(texttemplate='%{text:.2f}%', textposition='outside')
                 fig.update_layout(xaxis_title="Score (%)", yaxis_title="", template="plotly_white", height=450)
                 st.plotly_chart(fig, use_container_width=True)
+                
+                import plotly.io as pio
 
-                img_bytes = fig.to_image(format="png")
-                st.download_button("⬇️ Download Emotion Chart (PNG)", data=img_bytes, file_name="emotion_chart.png", mime="image/png")
+                # ---- FIX HERE ----
+                try:
+                    # requires "pip install -U kaleido"
+                    img_bytes = pio.to_image(fig, format="png")
+                    st.download_button(
+                        "⬇️ Download Emotion Chart (PNG)",
+                        data=img_bytes,
+                        file_name="emotion_chart.png",
+                        mime="image/png"
+                    )
+                except Exception as e:
+                    st.info(
+                        "⚠️ PNG export not available in this environment. You can still right-click the chart and save as PNG, or download as HTML below.")
+                    html_bytes = fig.to_html().encode("utf-8")
+                    st.download_button(
+                        "⬇️ Download Emotion Chart (HTML)",
+                        data=html_bytes,
+                        file_name="emotion_chart.html",
+                        mime="text/html"
+                    )
+
+                # img_bytes = fig.to_image(format="png")
+                # st.download_button("⬇️ Download Emotion Chart (PNG)", data=img_bytes, file_name="emotion_chart.png", mime="image/png")
 
 # ----------------------------
 # Footer
