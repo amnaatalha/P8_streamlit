@@ -15,16 +15,15 @@ from io import BytesIO
 # ----------------------------
 st.set_page_config(page_title="Advanced Sentiment & Emotions", layout="wide", page_icon="🤖")
 
-# load models (cached in memory)
+# load models (will download the first time; cache_resource keeps them in memory)
 @st.cache_resource
 def load_models():
     sentiment = pipeline("sentiment-analysis", model="cardiffnlp/twitter-roberta-base-sentiment")
     emotion = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base", return_all_scores=True)
     summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
-    fine_grained = pipeline("sentiment-analysis", model="nlptown/bert-base-multilingual-uncased-sentiment")
-    return sentiment, emotion, summarizer, fine_grained
+    return sentiment, emotion, summarizer
 
-sentiment_analyzer, emotion_analyzer, summarizer, fine_grained_analyzer = load_models()
+sentiment_analyzer, emotion_analyzer, summarizer = load_models()
 
 # ----------------------------
 # Helpers
@@ -35,7 +34,9 @@ def clean_text(text):
 def chunk_text(text, chunk_size=1000, overlap=200):
     if not text:
         return []
-    chunks, start, L = [], 0, len(text)
+    chunks = []
+    start = 0
+    L = len(text)
     while start < L:
         end = min(start + chunk_size, L)
         chunks.append(text[start:end])
@@ -77,45 +78,31 @@ def fetch_url_text(url):
         st.error(f"URL fetch failed: {e}")
         return ""
 
-# ----------------------------
-# Analysis functions
-# ----------------------------
 def analyze_sentiment(text):
-    result = sentiment_analyzer(text)[0]
-    mapping = {"LABEL_0": "Negative", "LABEL_1": "Neutral", "LABEL_2": "Positive"}
-    label = mapping.get(result["label"], result["label"])
-    return {"label": label, "score": round(result["score"]*100, 2)}
-
-def analyze_fine_grained(text):
-    result = fine_grained_analyzer(text)[0]
-    label = result["label"]
-    score = round(result["score"]*100, 2)
-    mapping = {
-        "1 star": "Very Negative",
-        "2 stars": "Negative",
-        "3 stars": "Neutral",
-        "4 stars": "Positive",
-        "5 stars": "Very Positive"
-    }
-    return {"label": mapping.get(label, label), "score": score}
+    return sentiment_analyzer(text)[0]
 
 def analyze_emotions_aggregate(text):
+    """If text is long, chunk and aggregate emotion scores weighted by chunk length."""
     chunks = chunk_text(text, chunk_size=1000, overlap=200)
     if not chunks:
         return {}
-    weighted, total_len = {}, 0
+    weighted = {}
+    total_len = 0
     for ch in chunks:
         out = emotion_analyzer(ch)[0]  # list of dicts
         L = len(ch)
         total_len += L
         for item in out:
-            lbl, sc = item["label"], item["score"]
+            lbl = item["label"]
+            sc = item["score"]
             weighted[lbl] = weighted.get(lbl, 0.0) + sc * L
     for k in list(weighted.keys()):
         weighted[k] = round((weighted[k] / total_len) * 100, 2)
+    # return sorted descending
     return dict(sorted(weighted.items(), key=lambda x: x[1], reverse=True))
 
 def summarize_text(text, max_len=150):
+    # summarizer can choke on very long text; send first ~1000 chars to keep it safe
     short = text if len(text) <= 1000 else text[:1000]
     try:
         return summarizer(short, max_length=max_len, min_length=30, do_sample=False)[0]["summary_text"]
@@ -125,15 +112,18 @@ def summarize_text(text, max_len=150):
 # ----------------------------
 # UI: Input
 # ----------------------------
-st.title("🤖 Summarizer + Sentiment & Emotions Analyzer")
-st.write("Paste text, upload a file, or provide a URL. Get summary, sentiment polarity (basic + fine-grained), emotions table + chart.")
+st.title("🤖 Summarizer and Sentiment Analyzer")
+st.write("Paste text, upload a TXT or PDF, or provide a URL. Click Analyze to get sentiment, emotions (table + chart), and a summary.")
 
 mode = st.radio("Input method:", ["✍️ Text", "🌐 URL", "📂 File"], horizontal=True)
+# mode = st.radio("Input method:", ["✍️ Text", "🌐 URL"], horizontal=True)
+
 
 input_text = ""
+
 if mode == "✍️ Text":
-    input_text = st.text_area("Paste or type text:", height=260, value=st.session_state.get("input_text",""))
-    st.session_state["input_text"] = input_text
+    input_text = st.text_area("Paste or type text (no hard limit):", height=260, value=st.session_state.get("input_text",""))
+    st.session_state["input_text"] = input_text  # persist
 
 elif mode == "🌐 URL":
     url = st.text_input("Enter URL:")
@@ -142,7 +132,7 @@ elif mode == "🌐 URL":
         if fetched:
             input_text = (st.session_state.get("input_text","") + "\n\n" + fetched).strip()
             st.session_state["input_text"] = input_text
-            st.success("Fetched and appended.")
+            st.success("Fetched and appended to text area.")
         else:
             st.warning("No text extracted from URL.")
 
@@ -152,7 +142,7 @@ elif mode == "📂 File":
         if uploaded.type == "text/plain":
             input_text = uploaded.read().decode("utf-8", errors="ignore")
             st.session_state["input_text"] = (st.session_state.get("input_text","") + "\n\n" + input_text).strip()
-            st.success("TXT appended.")
+            st.success("TXT appended to text area.")
         elif uploaded.type == "application/pdf":
             try:
                 from PyPDF2 import PdfReader
@@ -161,10 +151,11 @@ elif mode == "📂 File":
                 full = "\n\n".join(pages)
                 input_text = full
                 st.session_state["input_text"] = (st.session_state.get("input_text","") + "\n\n" + input_text).strip()
-                st.success("PDF appended.")
+                st.success("PDF text appended to text area.")
             except Exception as e:
                 st.error("Failed to read PDF: " + str(e))
 
+# working text
 working_text = st.session_state.get("input_text","").strip()
 
 # Action buttons
@@ -174,18 +165,19 @@ with c2: do_summarize = st.button("📝 Summarize")
 with c3: do_both = st.button("⚡ Both")
 
 # ----------------------------
-# Run analysis
+# Run analysis & display table + chart
 # ----------------------------
 if do_analyze or do_summarize or do_both:
     if not working_text:
-        st.warning("Please provide text first.")
+        st.warning("Please provide text via paste, upload, or URL.")
     else:
         text = clean_text(working_text)
-
+        # show preview and copy
         st.markdown("### Original (preview)")
         st.write(text[:1500] + ("..." if len(text) > 1500 else ""))
         copy_button(text, "Copy Original")
 
+        # summary
         result_summary = None
         if do_summarize or do_both:
             with st.spinner("Summarizing..."):
@@ -194,39 +186,60 @@ if do_analyze or do_summarize or do_both:
             st.write(result_summary)
             copy_button(result_summary or "", "Copy Summary")
 
+        # choose whether to analyze original or summary (if both)
         if do_analyze or do_both:
-            base_text = text if not do_both else (result_summary or text)
-            with st.spinner("Analyzing polarity & emotions..."):
-                basic = analyze_sentiment(base_text)
-                fine = analyze_fine_grained(base_text)
+            if do_both:
+                choice = st.radio("Which text to analyze for emotions?", ["Original", "Summary"], horizontal=True)
+                base_text = text if choice == "Original" else (result_summary or text)
+            else:
+                base_text = text
+
+            with st.spinner("Analyzing emotions..."):
                 emotions = analyze_emotions_aggregate(base_text)
 
-            st.subheader("🌓 Sentiment Polarity")
-            st.write(f"**Basic Polarity:** {basic['label']} ({basic['score']}%)")
-            st.write(f"**Fine-Grained Polarity:** {fine['label']} ({fine['score']}%)")
-
-            if emotions:
+            if not emotions:
+                st.warning("Emotion analysis returned no results.")
+            else:
+                # build DataFrame (descending)
                 df = pd.DataFrame(list(emotions.items()), columns=["Emotion", "Score(%)"]).sort_values("Score(%)", ascending=False).reset_index(drop=True)
                 st.subheader("🎭 Emotion Table")
-                st.dataframe(df, use_container_width=True)
+                st.dataframe(df, use_container_width=True)   # explicit table display
 
+                # copy and download CSV
                 csv_data = df.to_csv(index=False)
                 copy_button(csv_data, "Copy Emotions CSV")
                 st.download_button("⬇️ Download Emotions CSV", data=csv_data.encode("utf-8"), file_name="emotions.csv", mime="text/csv")
 
+                # horizontal chart: sort ascending for better horizontal ordering (largest on top)
                 df_chart = df.sort_values("Score(%)", ascending=True)
-                fig = px.bar(df_chart, x="Score(%)", y="Emotion", orientation="h",
-                             color="Score(%)", color_continuous_scale="RdYlBu",
-                             text="Score(%)", title="Emotion Distribution")
+                fig = px.bar(
+                    df_chart,
+                    x="Score(%)",
+                    y="Emotion",
+                    orientation="h",
+                    color="Score(%)",
+                    color_continuous_scale="RdYlBu",
+                    text="Score(%)",
+                    title="Emotion Distribution"
+                )
                 fig.update_traces(texttemplate='%{text:.2f}%', textposition='outside')
                 fig.update_layout(xaxis_title="Score (%)", yaxis_title="", template="plotly_white", height=450)
                 st.plotly_chart(fig, use_container_width=True)
 
-                img_bytes = fig.to_image(format="png")
-                st.download_button("⬇️ Download Emotion Chart (PNG)", data=img_bytes, file_name="emotion_chart.png", mime="image/png")
+                
+                # Save as HTML instead of PNG
+                html_bytes = fig.to_html().encode("utf-8")
+                st.download_button("⬇️ Download Chart (HTML)", data=html_bytes, file_name="chart.html")
+
+                # # allow chart PNG download
+                # img_bytes = fig.to_image(format="png")
+                # st.download_button("⬇️ Download Emotion Chart (PNG)", data=img_bytes, file_name="emotion_chart.png", mime="image/png")
 
 # ----------------------------
 # Footer
 # ----------------------------
 st.markdown("---")
-st.markdown("Notes: first run may be slower while transformer models download. Input under a few thousand characters recommended for best speed.")
+st.markdown(
+    "Notes: first run may be slower while transformer models download. Keep input under a few thousand characters for best speed. "
+    "If you want larger-file support or PDF/DOCX reports, we can add those while balancing dependencies."
+)
