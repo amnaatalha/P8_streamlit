@@ -536,4 +536,4 @@ if (do_analyze or do_summarize or do_both):
         render_scroll_and_flash(target)
 
 st.markdown("---")
-st.markdown("Notes: first run may be slower while transformer models download. Audio transcription (Whisper) and model downloads may take time. Input under a few thousand characters recommended for best interactive speed.")
+st.markdown("Notes: first run may be slower while transformer models download. Input under a few thousand characters recommended for best interactive speed.")
