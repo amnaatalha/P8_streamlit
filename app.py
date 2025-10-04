@@ -25,6 +25,8 @@ import os
 from PyPDF2 import PdfReader
 # import whisper
 from fpdf import FPDF
+import subprocess
+import importlib
 
 # ----------------------------
 # Config & Models (unchanged base)
