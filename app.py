@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 import tempfile
 import os
 from PyPDF2 import PdfReader
-import whisper
+# import whisper
 from fpdf import FPDF
 
 # ----------------------------
@@ -328,17 +328,17 @@ elif mode == "📂 File":
         st.session_state["input_text"] = (st.session_state.get("input_text","") + "\n\n" + input_text).strip()
         st.success("File appended.")
 
-elif mode == "🎤 Audio/Video":
-    audio_file = st.file_uploader("Upload audio/video file (mp3,wav,m4a,mp4)", type=["mp3","wav","m4a","mp4"])
-    if audio_file:
-        st.info("Transcribing with Whisper... (may take a while on first run)")
-        transcribed = transcribe_audio(audio_file)
-        if transcribed:
-            input_text = (st.session_state.get("input_text","") + "\n\n" + transcribed).strip()
-            st.session_state["input_text"] = input_text
-            st.success("Audio transcription complete.")
-        else:
-            st.warning("No text transcribed.")
+# elif mode == "🎤 Audio/Video":
+#     audio_file = st.file_uploader("Upload audio/video file (mp3,wav,m4a,mp4)", type=["mp3","wav","m4a","mp4"])
+#     if audio_file:
+#         st.info("Transcribing with Whisper... (may take a while on first run)")
+#         transcribed = transcribe_audio(audio_file)
+#         if transcribed:
+#             input_text = (st.session_state.get("input_text","") + "\n\n" + transcribed).strip()
+#             st.session_state["input_text"] = input_text
+#             st.success("Audio transcription complete.")
+#         else:
+#             st.warning("No text transcribed.")
 
 working_text = st.session_state.get("input_text","").strip()
 
