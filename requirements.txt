@@ -9,3 +9,6 @@ PyPDF2
 sentencepiece
 kaleido
 spacy
+textblob 
+matplotlib 
+wordcloud
