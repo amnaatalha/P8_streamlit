@@ -48,7 +48,7 @@ def load_spacy():
     try:
         return spacy.load("en_core_web_sm")
     except OSError:
-        # If model not found, download it
+        # fallback: install at runtime
         subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
         return spacy.load("en_core_web_sm")
 
