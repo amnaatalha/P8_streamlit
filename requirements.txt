@@ -12,3 +12,4 @@ spacy
 textblob 
 matplotlib 
 wordcloud
+FPDF
