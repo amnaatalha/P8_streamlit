@@ -2,14 +2,10 @@ streamlit
 transformers
 torch
 plotly
+wordcloud
+spacy
 pandas
+numpy
 requests
 beautifulsoup4
 PyPDF2
-sentencepiece
-kaleido
-spacy
-textblob 
-matplotlib 
-wordcloud
-FPDF
