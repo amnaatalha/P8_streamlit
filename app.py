@@ -185,21 +185,21 @@ def generate_wordcloud_from_freq(freq_dict, color_map=None):
     ax.axis("off")
     return fig_wc
 
-def transcribe_audio(file):
-    try:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(file.name)[1]) as tmp:
-            tmp.write(file.read())
-            tmp.flush()
-            tmp_path = tmp.name
-        result = whisper_model.transcribe(tmp_path)
-        try:
-            os.remove(tmp_path)
-        except Exception:
-            pass
-        return result.get("text", "")
-    except Exception as e:
-        st.error(f"Transcription failed: {e}")
-        return ""
+# def transcribe_audio(file):
+#     try:
+#         with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(file.name)[1]) as tmp:
+#             tmp.write(file.read())
+#             tmp.flush()
+#             tmp_path = tmp.name
+#         result = whisper_model.transcribe(tmp_path)
+#         try:
+#             os.remove(tmp_path)
+#         except Exception:
+#             pass
+#         return result.get("text", "")
+#     except Exception as e:
+#         st.error(f"Transcription failed: {e}")
+#         return ""
 
 def save_plotly_fig_as_png(fig):
     """Try to convert plotly figure to PNG using kaleido if available; else return None."""
