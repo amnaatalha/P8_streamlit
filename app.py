@@ -47,11 +47,11 @@ def load_spacy():
 
 nlp = load_spacy()
 
-@st.cache_resource
-def load_whisper():
-    return whisper.load_model("base")
-
-whisper_model = load_whisper()
+# @st.cache_resource
+# def load_whisper():
+#     return whisper.load_model("base")
+#
+# whisper_model = load_whisper()
 
 # ----------------------------
 # Helpers (original + new)
