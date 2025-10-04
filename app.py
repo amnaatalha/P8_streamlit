@@ -27,6 +27,7 @@ from PyPDF2 import PdfReader
 from fpdf import FPDF
 import subprocess
 import importlib
+import en_core_web_sm
 
 # ----------------------------
 # Config & Models (unchanged base)
@@ -45,12 +46,7 @@ sentiment_analyzer, emotion_analyzer, summarizer, fine_grained_analyzer = load_m
 
 @st.cache_resource
 def load_spacy():
-    try:
-        return spacy.load("en_core_web_sm")
-    except OSError:
-        # fallback: install at runtime
-        subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
-        return spacy.load("en_core_web_sm")
+    return en_core_web_sm.load()
 
 nlp = load_spacy()
 
