@@ -43,7 +43,12 @@ sentiment_analyzer, emotion_analyzer, summarizer, fine_grained_analyzer = load_m
 
 @st.cache_resource
 def load_spacy():
-    return spacy.load("en_core_web_sm")
+    try:
+        return spacy.load("en_core_web_sm")
+    except OSError:
+        # If model not found, download it
+        subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+        return spacy.load("en_core_web_sm")
 
 nlp = load_spacy()
 
